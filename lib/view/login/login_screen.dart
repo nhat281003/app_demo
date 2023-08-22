@@ -202,7 +202,6 @@ class LoginScreen extends StatelessWidget {
                                 autoFocus: false),
                             heightSizedBox,
                             GestureDetector(
-                                onTap: () => Get.toNamed(Routes.forgotPassword),
                                 child: Text('Quên mật khẩu?',
                                     style: TextStyleUtils.sizeText14Weight400()
                                         ?.copyWith(
@@ -228,7 +227,6 @@ class LoginScreen extends StatelessWidget {
                                 Text('Nếu chưa có tài khoản? Đăng ký ',
                                     style: TextStyleUtils.sizeText14Weight400()?.copyWith(fontSize: ConvertHW.removeHW('14sp4'))),
                                 GestureDetector(
-                                  onTap: () => Get.toNamed(Routes.register),
                                   child: Text(
                                     'tại đây',
                                     style: TextStyleUtils.sizeText14Weight600()
