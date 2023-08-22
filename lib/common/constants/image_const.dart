@@ -65,15 +65,15 @@ class ImageConst {
   static const String ICON_NOTIFICATION = 'assets/icons/icon_thng_bao.png';
 
   // icon bottom bar
-  static const String ICON_HOME = 'assets/icons/icon_home.png';
-  static const String ICON_HOME_SELECT = 'assets/icons/icon_home_1.png';
-  static const String ICON_VOTE = 'assets/icons/icon_binh_chon_1.png';
-  static const String ICON_VOTE_SELECT = 'assets/icons/icon_binh_chon_2.png';
-  static const String ICON_GIFT = 'assets/icons/icon_doi_qua.png';
-  static const String ICON_GIFT_SELECT = 'assets/icons/icon_doi_qua_1.png';
-  static const String ICON_ACCOUNT = 'assets/icons/icon_tk.png';
-  static const String ICON_ACCOUNT_SELECT = 'assets/icons/icon_tk_1.png';
   static const String ICON_QR_SCAN = 'assets/icons/icon_QR.png';
+  static const String ICON_HOME = 'assets/images/hom2.jpg';
+  static const String ICON_HOME_SELECT = 'assets/images/home.jpg';
+  static const String ICON_SEARCHS= 'assets/images/find.jpg';
+  static const String ICON_SEARCHS_SELECT = 'assets/images/find2.jpg';
+  static const String ICON_ODER = 'assets/images/cate.jpg';
+  static const String ICON_ODER_SELECT = 'assets/images/cate2.jpg';
+  static const String ICON_PROFILE = 'assets/images/profile.jpg';
+  static const String ICON_PROFILE_SELECT = 'assets/images/profile2.jpg';
   static const String ICON_V = 'assets/icons/icon_v.png';
   static const String ICON_BL = 'assets/icons/icon_bl.png';
   static const String ICON_VONG_QUAY = 'assets/icons/icon_vong_quay.png';

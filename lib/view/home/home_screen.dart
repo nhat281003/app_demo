@@ -3,6 +3,7 @@ import 'package:app_3tv/common/constants/image_const.dart';
 import 'package:app_3tv/common/constants/size_utils.dart';
 import 'package:app_3tv/common/utils/color_utils.dart';
 import 'package:app_3tv/common/utils/convert_h_w.dart';
+import 'package:app_3tv/view/dashbroad/dashbroad_page.dart';
 import 'package:app_3tv/view/home/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class HomeScreen extends StatefulWidget {
 
 class _AnimatedBarExampleState extends State<HomeScreen> {
   Color colorUnSelect = ColorUtils.COLOR_MENU;
-  Color colorSelect = ColorUtils.COLOR_MENU_SELECT;
+  Color colorSelect = ColorUtils.COLOR_TAM_ANG;
   double heightIcon = ConvertHW.removeHW('26sp4');
   double widthIcon = ConvertHW.removeHW('26sp4');
   TextStyle titleStyle = TextStyle(fontSize: ConvertHW.removeHW('13sp4'));
@@ -48,41 +49,41 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
                   height: heightIcon,
                 ),
                 //   icon: Image.asset(ImageConst.ICON_QR,width: ConvertHW.removeHW('20sp5'),),
-                title: Text('Trang chủ', style: titleStyle),
+                title: Text('Home', style: titleStyle),
                 selectedColor: colorSelect),
             BottomBarItem(
                 unSelectedColor: colorUnSelect,
                 icon: Image.asset(
                   homeController.selected == SizeUtils.VOTE_PAGE
-                      ? ImageConst.ICON_VOTE_SELECT
-                      : ImageConst.ICON_VOTE,
+                      ? ImageConst.ICON_SEARCHS_SELECT
+                      : ImageConst.ICON_SEARCHS,
                   width: widthIcon,
                   height: heightIcon,
                 ),
-                title: Text('Bình chọn', style: titleStyle),
+                title: Text('Search', style: titleStyle),
                 selectedColor: colorSelect),
             BottomBarItem(
                 unSelectedColor: colorUnSelect,
                 icon: Image.asset(
                   homeController.selected == SizeUtils.GIFT_PAGE
-                      ? ImageConst.ICON_GIFT_SELECT
-                      : ImageConst.ICON_GIFT,
+                      ? ImageConst.ICON_ODER_SELECT
+                      : ImageConst.ICON_ODER,
                   width: widthIcon,
                   height: heightIcon,
                 ),
                 selectedColor: colorSelect,
-                title: Text('Đổi quà', style: titleStyle)),
+                title: Text('Oders', style: titleStyle)),
             BottomBarItem(
                 unSelectedColor: colorUnSelect,
                 icon: Image.asset(
                   homeController.selected == SizeUtils.ACCOUNT_PAGE
-                      ? ImageConst.ICON_ACCOUNT_SELECT
-                      : ImageConst.ICON_ACCOUNT,
+                      ? ImageConst.ICON_PROFILE_SELECT
+                      : ImageConst.ICON_PROFILE,
                   width: widthIcon,
                   height: heightIcon,
                 ),
                 selectedColor: colorSelect,
-                title: Text('Tài khoản', style: titleStyle)),
+                title: Text('Profile', style: titleStyle)),
           ],
           hasNotch: true,
           fabLocation: StylishBarFabLocation.center,
@@ -95,27 +96,14 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
             });
           },
         ),
-        floatingActionButton: GestureDetector(
-          onTap: () {},
-          child: Container(
-            height: ConvertHW.removeHW('50h25'),
-            width: ConvertHW.removeHW('50h25'),
-            decoration: const BoxDecoration(
-              color: ColorUtils.COLOR_BG_BUTTON_QR,
-              borderRadius: BorderRadius.all(Radius.circular(100)),
-            ),
-            child: Icon(
-              Icons.qr_code_scanner_outlined,
-              size: ConvertHW.removeHW('30sp5'),
-              color: Colors.white,
-            ),
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: homeController.pageController,
           children: [
+            DashBroadPage(),
+            DashBroadPage(),
+            DashBroadPage(),
+            DashBroadPage(),
           ],
         ),
       );
