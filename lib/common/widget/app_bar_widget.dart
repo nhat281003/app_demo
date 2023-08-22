@@ -15,16 +15,16 @@ class AppBarUtils {
       {Color? textColor, Color? bg, Function? backFunction}) {
     Color txtColor = textColor ?? Colors.white;
     return AppBar(
-      backgroundColor: ColorUtils.COLOR_PRIMARY,
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  ImageConst.BACKGROUND_APP_BAR,
-                ),
-                fit: BoxFit.cover)
-            ),
-      ),
+      backgroundColor: bg,
+      // flexibleSpace: Container(
+      //   decoration: const BoxDecoration(
+      //       image: DecorationImage(
+      //           image: AssetImage(
+      //             ImageConst.BACKGROUND_APP_BAR,
+      //           ),
+      //           fit: BoxFit.cover)
+      //       ),
+      // ),
       toolbarHeight: 60.h,
       title: title,
       centerTitle: true,

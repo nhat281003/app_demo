@@ -101,8 +101,9 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
             height: ConvertHW.removeHW('50h25'),
             width: ConvertHW.removeHW('50h25'),
             decoration: const BoxDecoration(
-                color: ColorUtils.COLOR_BG_BUTTON_QR,
-                borderRadius: BorderRadius.all(Radius.circular(100))),
+              color: ColorUtils.COLOR_BG_BUTTON_QR,
+              borderRadius: BorderRadius.all(Radius.circular(100)),
+            ),
             child: Icon(
               Icons.qr_code_scanner_outlined,
               size: ConvertHW.removeHW('30sp5'),

@@ -37,8 +37,8 @@ class ColorUtils {
 
   // color text
   static const COLOR_LINK_TEXT = Color(0xFFF38F0C);
-  static const COLOR_TEXT_1 = Color(0xFF0177BC);
-  static const COLOR_TEXT_2 = Color(0xFF052E61);
+  //static const COLOR_TEXT_1 = Color(0xFF0177BC);
+  // static const COLOR_TEXT_2 = Color(0xFF052E61);
   static const COLOR_TEXT_3 = Color(0xFF9FA2B7);
   static const COLOR_TEXT_4 = Color(0xFFFCEEC0);
   static const COLOR_TEXT_5 = Color(0xFFF1EEC5);
@@ -158,11 +158,17 @@ class ColorUtils {
   static const colorC7C9C9 = Color(0xFFC7C9C9);
   static const colorBEBEBE = Color(0xFFBEBEBE);
   static const grey3 = Color(0xffC4C4C4);
-  static const COLOR_PRIMARY = Color(0xFF404EE7);
+
+  static const COLOR_PRIMARY = Color(0xFF46BB1B);
   static const COLOR_SUB_GREEN = Color(0xFF1682C2);
   static const COLOR_SUB_PRIMARY = Color(0xFF0177BC);
   static const COLOR_SUB_BLUE = Color(0xFF2069EE);
   static const COLOR_SUB_GOLD = Color(0xFFDCC496);
+  static const COLOR_TITLE = Color(0xFF868686);
+  static const COLOR_BG_GREY = Color(0xFF979797);
+  static const COLOR_TEXT= Color(0xFF010F07);
+  static const COLOR_TEXT_1 = Color(0xFF010F07);
+  static const COLOR_TEXT_2 = Color(0xFFF8B64C);
 
   static List<Color> colors = [
     COLOR_CHART15,
