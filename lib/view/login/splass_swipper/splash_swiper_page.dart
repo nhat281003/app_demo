@@ -1,3 +1,4 @@
+import 'package:app_3tv/routes/app_routes.dart';
 import 'package:app_3tv/view/login/splass_swipper/splass_swipper_controller.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,8 +20,7 @@ class SplassSwipperPage extends GetView<SplassSwiperController> {
           Column(
             children: [
               Expanded(child:  Swiper(
-                scrollDirection: Axis.horizontal,
-                duration: 5000,
+                duration: 800,
                 autoplay: true,
                 onIndexChanged: (value) {
                   controller.indexSwiper.value = value;
@@ -63,7 +63,9 @@ class SplassSwipperPage extends GetView<SplassSwiperController> {
                         borderRadius: BorderRadius.circular(8),
                       )
                   ),
-                  onPressed: (){}, child: Text('GET STARTED', style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.w500),),),
+                  onPressed: (){
+                    Get.toNamed(Routes.findRestaurents);
+                  }, child: Text('GET STARTED', style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.w500),),),
               )
             ],
           ),
