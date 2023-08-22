@@ -55,6 +55,7 @@ class ColorUtils {
   static const COLOR_TEXT_TITLE = Color(0xFF0175B9);
   static const COLOR_MENU = Color(0xFFBEC1DB);
   static const COLOR_MENU_SELECT = Color(0xFF1682C2);
+  static const COLOR_TAM_ANG = Color(0xFF46BB1B);
 
   // color border
   static const COLOR_BORDER_1 = Color(0xFFF1EEC5);
