@@ -15,14 +15,13 @@ class FindRestaurentsPage extends GetWidget<FindRestaurentsController>{
       Obx(() => Scaffold(
         body:
         Container(
-
           margin: EdgeInsets.only(top: 60.h),
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child:  Column(
             children: [
               Row(
                 children: [
-                  Icon(CupertinoIcons.xmark),
+                  const Icon(CupertinoIcons.xmark),
                   Expanded(child: Container()),
 
                 ],
@@ -35,15 +34,15 @@ class FindRestaurentsPage extends GetWidget<FindRestaurentsController>{
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(width: 1, color: Color(0xFF46BB1B))
+                    border: Border.all(width: 1, color: const Color(0xFF46BB1B))
                 ),
                 padding: EdgeInsets.symmetric(vertical: 12.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(CupertinoIcons.location_fill, color: Color(0xFF46BB1B),),
+                    const Icon(CupertinoIcons.location_fill, color: Color(0xFF46BB1B),),
                     SizedBox(width: 8.w,),
-                    Text('Use current location', textAlign: TextAlign.center, style:  TextStyle(color:Color(0xFF46BB1B), fontWeight: FontWeight.w400, fontSize: 16.sp),)
+                    Text('Use current location', textAlign: TextAlign.center, style:  TextStyle(color:const Color(0xFF46BB1B), fontWeight: FontWeight.w400, fontSize: 16.sp),)
                   ],
                 ),
               ),
@@ -61,16 +60,19 @@ class FindRestaurentsPage extends GetWidget<FindRestaurentsController>{
                   child: Row(
                     children: [
                       SizedBox(width: 16.w,),
-                      Icon(CupertinoIcons.location_solid, color: Colors.grey,),
+                      const Icon(CupertinoIcons.location_solid, color: Colors.grey,),
                       SizedBox(width: 8.w,),
                       Text('Enter a new address', style:  TextStyle(color:Colors.grey, fontWeight: FontWeight.w400, fontSize: 16.sp),)
                     ],
                   ),
                 ),),
-           Expanded(child:    Visibility(
+           Expanded(
+               child:
+           Visibility(
                visible: controller.isVisibiliti.value,
                child:
                ListView.builder(
+                 padding: EdgeInsets.zero,
                  itemCount: 10,
                  shrinkWrap: true,
                  itemBuilder: (context, index) {
@@ -80,11 +82,11 @@ class FindRestaurentsPage extends GetWidget<FindRestaurentsController>{
                         Get.toNamed(Routes.home);
                       },
                       child:  Container(
-                        margin: EdgeInsets.symmetric(vertical: 4.sp),
+                        margin: EdgeInsets.symmetric(vertical: 8.h),
                         child:  Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(CupertinoIcons.location_fill, color: Colors.grey,size: 20,),
+                            const Icon(CupertinoIcons.location_fill, color: Colors.grey,size: 20,),
                             SizedBox(width: 8.w,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +94,6 @@ class FindRestaurentsPage extends GetWidget<FindRestaurentsController>{
                                 Text("St Georgese Terrace, Perth", style:  TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 16.sp),),
                                 SizedBox(height: 2.h,),
                                 Text("Western Australia", style:  TextStyle(color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 12.sp),),
-
                               ],
                             )
                           ],
