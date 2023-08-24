@@ -1,10 +1,6 @@
 import 'package:app_3tv/common/utils/color_utils.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:card_swiper/card_swiper.dart';
-import 'package:card_swiper/card_swiper.dart';
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -225,7 +221,14 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                          child: Swiper(
                            itemCount: 5,
                            autoplay: true,
-                           autoplayDelay: 5000,
+                           autoplayDelay:
+                           index == 0?
+                           5000 :
+                           index ==1 ?
+                           3000:
+                           index == 2?
+                           2000:
+                           1000,
                            pagination:const SwiperPagination(
                                alignment: Alignment.bottomRight,
                                margin: EdgeInsets.all(10)
