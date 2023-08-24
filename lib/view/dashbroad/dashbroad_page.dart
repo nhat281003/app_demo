@@ -206,6 +206,7 @@ class DashBroadPage extends GetWidget<DashBroadController>{
               ),
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 itemCount: 4,
                 itemBuilder: (context, index) {
@@ -290,7 +291,7 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                    ),
                  );
               },),
-              SizedBox(height: 30.h,)
+              SizedBox(height: 50.h,)
             ],
           ),
         ),
