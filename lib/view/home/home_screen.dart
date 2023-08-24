@@ -4,6 +4,7 @@ import 'package:app_3tv/common/utils/color_utils.dart';
 import 'package:app_3tv/common/utils/convert_h_w.dart';
 import 'package:app_3tv/view/dashbroad/dashbroad_page.dart';
 import 'package:app_3tv/view/home/home_controller.dart';
+import 'package:app_3tv/view/order/order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -101,7 +102,7 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
           children: [
             DashBroadPage(),
             DashBroadPage(),
-            DashBroadPage(),
+            OrderScreen(),
             DashBroadPage(),
           ],
         ),

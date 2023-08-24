@@ -4,6 +4,8 @@ import 'package:app_3tv/view/home/home_screen.dart';
 import 'package:app_3tv/view/login/login_screen.dart';
 import 'package:app_3tv/view/login/splash_screen.dart';
 import 'package:app_3tv/view/login/splass_swipper/splash_swiper_page.dart';
+import 'package:app_3tv/view/order/confirm_order/confirm_order.dart';
+import 'package:app_3tv/view/order/order.dart';
 import 'package:get/get.dart';
 
 class AppPages{
@@ -12,6 +14,8 @@ class AppPages{
     GetPage(name:Routes.home, page: ()=> HomeScreen()),
     GetPage(name:Routes.login, page: ()=> LoginScreen()),
     GetPage(name:Routes.splash2, page: ()=> SplassSwipperPage()),
+    GetPage(name:Routes.order, page: ()=> OrderScreen()),
+    GetPage(name:Routes.confirmOrder, page: ()=> ConfirmOrderScreen()),
     GetPage(name:Routes.findRestaurents, page: ()=> FindRestaurentsPage()),
   ];
 }
