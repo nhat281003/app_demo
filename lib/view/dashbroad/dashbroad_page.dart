@@ -73,7 +73,7 @@ class DashBroadPage extends GetWidget<DashBroadController>{
               SizedBox(
                 height: 210.h,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: controller.list.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
@@ -88,16 +88,16 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                             width: double.infinity,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                image: const DecorationImage(
+                                image:  DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage("https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien-004.jpg")
+                                    image: NetworkImage(controller.list[index].avatar!)
                                 )
                             ),
                           ),
                           SizedBox(height: 8.h,),
-                          Text('Krispy Creme', style: TextStyle(color: Colors.black, fontSize: 20.sp, fontWeight: FontWeight.w400),),
+                          Text(controller.list[index].name?? "", style: TextStyle(color: Colors.black, fontSize: 20.sp, fontWeight: FontWeight.w400),),
                           SizedBox(height: 4.h,),
-                          Text('St Georgece Terrace, Perth', style: TextStyle(color: Colors.black45, fontSize: 14.sp, fontWeight: FontWeight.w400),),
+                          Text(controller.list[index].desscriptions?? "", style: TextStyle(color: Colors.black45, fontSize: 14.sp, fontWeight: FontWeight.w400),),
                           Expanded(child: Container()),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,15 +110,11 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                                 ),
                                 child: Text('4.5', textAlign: TextAlign.center,style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12.sp),),
                               ),
-                              Text('25 min', textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400, fontSize: 12.sp),),
+                              Text('${controller.list[index].time!}', textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400, fontSize: 12.sp),),
                               Text('Free ship', textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400, fontSize: 12.sp),)
 
                             ],
                           )
-
-
-
-
                         ],
                       ),
                     );
@@ -185,7 +181,6 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                               ),
                               Text('25 min', textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400, fontSize: 12.sp),),
                               Text('Free ship', textAlign: TextAlign.center,style: TextStyle(color: Colors.black38, fontWeight: FontWeight.w400, fontSize: 12.sp),)
-
                             ],
                           )
                         ],
@@ -219,16 +214,16 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                          height: 180.h,
                          width: double.infinity,
                          child: Swiper(
-                           itemCount: 5,
+                           itemCount: 6,
                            autoplay: true,
                            autoplayDelay:
                            index == 0?
                            5000 :
                            index ==1 ?
-                           3000:
+                           4000:
                            index == 2?
-                           2000:
-                           1000,
+                           3500:
+                           2000,
                            pagination:const SwiperPagination(
                                alignment: Alignment.bottomRight,
                                margin: EdgeInsets.all(10)
@@ -301,4 +296,5 @@ class DashBroadPage extends GetWidget<DashBroadController>{
       ),
     );
   }
+
 }
