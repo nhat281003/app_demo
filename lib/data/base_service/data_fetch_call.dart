@@ -11,5 +11,5 @@ abstract class DataFetchCall<T> {
 
   T parseJson(Response response);
 
-  Future<ApiResponse<BaseModel>> request(Request request,{CancelToken cancelToken});
+  Future<ApiResponse<dynamic>> request(Request request,{CancelToken cancelToken});
 }

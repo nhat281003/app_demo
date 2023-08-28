@@ -104,8 +104,8 @@ class ApiService extends DataFetchCall<BaseModel> {
     return BaseModel.fromJson(response.data);
   }
 
-  @override
-  Future<ApiResponse<BaseModel>> request(Request request,
+
+  Future<ApiResponse<dynamic>> request(Request request,
       {CancelToken? cancelToken}) async {
     {
       try {
@@ -114,34 +114,25 @@ class ApiService extends DataFetchCall<BaseModel> {
         if (checkInternet) {
           var response =
               await createApiAsync(request, cancelToken: cancelToken);
-          BaseModel responseModel = parseJson(response);
           if (response.statusCode == 200) {
-            return ApiResponse.success<BaseModel>(responseModel);
+            return ApiResponse.success<dynamic>(response.data);
           } else if (response.statusCode == 400) {
-            return ApiResponse.failed<BaseModel>(BaseModel(
-                status: -1, message: response.data['error']['message']));
+            return ApiResponse.failed<dynamic>(response);
           } else if (response.statusCode == 401) {
 
-            return ApiResponse.failed<BaseModel>(BaseModel(
-                status: -1, message: response.data['error']['message']));
+            return ApiResponse.failed<dynamic>(response);
           } else if (response.statusCode == 403) {
-            return ApiResponse.failed<BaseModel>(BaseModel(
-                status: -1, message: response.data['error']['message']));
+            return ApiResponse.failed<dynamic>(response);
           } else if (response.statusCode == 500) {
-            return ApiResponse.failed<BaseModel>(BaseModel(
-                status: -1, message: response.data['error']['message']));
+            return ApiResponse.failed<dynamic>(response);
           } else {
-            return ApiResponse.failed<BaseModel>(BaseModel(
-                status: -1, message: "Lỗi kết nối: ${response.statusCode}"));
+            return ApiResponse.failed<dynamic>(response);
           }
         } else {
-          return ApiResponse.failed<BaseModel>(BaseModel(
-              status: -1,
-              message: "Không có kết nối. Vui lòng kiểm tra kết nối mạng!"));
+          return ApiResponse.failed<dynamic>(cancelToken);
         }
       } catch (error, stacktrace) {
-        return ApiResponse.failed<BaseModel>(
-            BaseModel(status: -1, message: stacktrace.toString()));
+        return ApiResponse.failed<dynamic>(stacktrace);
       }
     }
   }

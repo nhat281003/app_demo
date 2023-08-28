@@ -103,10 +103,10 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
           physics: const NeverScrollableScrollPhysics(),
           controller: homeController.pageController,
           children: [
-            ProfilePage(),
+            DashBroadPage(),
             SearchPage(),
             OrderScreen(),
-            ProfilePage(),
+            DashBroadPage(),
           ],
         ),
       );

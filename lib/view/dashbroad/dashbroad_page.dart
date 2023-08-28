@@ -71,7 +71,8 @@ class DashBroadPage extends GetWidget<DashBroadController>{
               ),
               SizedBox(
                 height: 210.h,
-                child: ListView.builder(
+                child:
+                Obx(() => ListView.builder(
                   itemCount: controller.list.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -117,7 +118,7 @@ class DashBroadPage extends GetWidget<DashBroadController>{
                         ],
                       ),
                     );
-                  },),
+                  },)),
               ),
               SizedBox(height: 16.h,),
               Container(

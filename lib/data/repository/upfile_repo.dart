@@ -15,19 +15,19 @@ class UpFileRepo {
     FormData formData = FormData.fromMap({
       "file": await MultipartFile.fromFile(file.path, filename: fileName),
     });
-    ApiResponse<BaseModel> apiResponse =
+    ApiResponse? apiResponse =
         await ApiService(ApiConstants.apiUploadImage, fromData: formData)
             .request(Request.POST);
-    if (apiResponse.status == Status.SUCCESS) {
+    if (apiResponse?.status == Status.SUCCESS) {
       final FileUploadModel data =
-          FileUploadModel.fromJson(apiResponse.data?.data);
+          FileUploadModel.fromJson(apiResponse?.data?.data);
       streamEvent = ResponseData(state: Status.SUCCESS, object: data);
     }
-    if (apiResponse.status == Status.ERROR) {
+    if (apiResponse?.status == Status.ERROR) {
       streamEvent = ResponseData(
           state: Status.ERROR,
-          errorCode: apiResponse.error,
-          message: apiResponse.error?.message);
+          errorCode: apiResponse?.error,
+          message: apiResponse?.error?.message);
     }
     return streamEvent;
   }
