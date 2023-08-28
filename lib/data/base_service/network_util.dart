@@ -41,20 +41,12 @@ class NetworkUtil {
       CancelToken? cancelToken}) async {
     try {
       Response response;
-      if (cancelToken != null) {
-        response = await _dio.get(url,
-            data: mapData,
-            queryParameters: params,
-            cancelToken: cancelToken,
-            options:
-                Options(responseType: ResponseType.json, headers: headers));
-      } else {
-        response = await _dio.get(url,
-            data: mapData,
-            queryParameters: params,
-            options:
-                Options(responseType: ResponseType.json, headers: headers));
-      }
+      response = await _dio.get(url,
+          data: mapData,
+          queryParameters: params,
+          cancelToken: cancelToken,
+          options:
+          Options(responseType: ResponseType.json, headers: headers));
       return response;
     } on DioError catch (e) {
       return response(e, url);
@@ -151,9 +143,7 @@ class NetworkUtil {
   Response response(DioError e, url) {
     Response response;
     response = e.response ??
-        Response(
-            data:
-                BaseModel(status: -1, message: ErrorCodeConstant.SERVER_ERROR),
+        Response(data: BaseModel( message: ErrorCodeConstant.SERVER_ERROR),
             requestOptions: RequestOptions(path: url));
     return response;
   }

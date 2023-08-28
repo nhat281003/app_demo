@@ -7,31 +7,29 @@ import 'package:app_3tv/data/model/profilees/profiless.dart';
 import 'package:dio/dio.dart';
 
 class ProfileRepo{
-  Future<ResponseData<Profile>> getlistProfile() async {
+  Future<Profile> getlistProfile() async {
     ResponseData<Profile> streamEvent = ResponseData(state: Status.LOADING);
     var param = <String, dynamic>{};
     var urlApi = "https://api.themoviedb.org/3/discover/movie?api_key=26763d7bf2e94098192e629eb975dab0&page=1";
-    ApiResponse<BaseModel> apiResponse =
+    ApiResponse? apiResponse =
     await ApiService(urlApi, request: param)
         .request(Request.GET);
 
-    if (apiResponse.status == Status.SUCCESS) {
+    if (apiResponse?.status == Status.SUCCESS) {
       // List<listFood> data = <listFood>[];
       // apiResponse.data?.data.map((e) {
       //   data.add(listFood.fromJson(e));
       // }).toList();
       final Profile data =
-      Profile.fromJson(apiResponse.data?.data);
+      Profile.fromJson(apiResponse?.data?.data);
       streamEvent = ResponseData(state: Status.SUCCESS, object: data);
 
     }
-    if (apiResponse.status == Status.ERROR) {
+    if (apiResponse?.status == Status.ERROR) {
       streamEvent = ResponseData(
-          state: Status.ERROR,
-          errorCode: apiResponse.error,
-          message: apiResponse.error?.message);
+          state: Status.ERROR,);
     }
-    return streamEvent;
+    return streamEvent.object!;
   }
 
 
