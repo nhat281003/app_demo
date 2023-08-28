@@ -2,9 +2,11 @@ import 'package:app_3tv/common/constants/image_const.dart';
 import 'package:app_3tv/common/constants/size_utils.dart';
 import 'package:app_3tv/common/utils/color_utils.dart';
 import 'package:app_3tv/common/utils/convert_h_w.dart';
+import 'package:app_3tv/data/model/profilees/profiless.dart';
 import 'package:app_3tv/view/dashbroad/dashbroad_page.dart';
 import 'package:app_3tv/view/home/home_controller.dart';
 import 'package:app_3tv/view/order/order.dart';
+import 'package:app_3tv/view/profile/profile_page.dart';
 import 'package:app_3tv/view/search/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -101,10 +103,10 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
           physics: const NeverScrollableScrollPhysics(),
           controller: homeController.pageController,
           children: [
-            DashBroadPage(),
+            ProfilePage(),
             SearchPage(),
             OrderScreen(),
-            DashBroadPage(),
+            ProfilePage(),
           ],
         ),
       );
