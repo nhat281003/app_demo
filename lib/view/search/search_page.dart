@@ -44,19 +44,9 @@ class SearchPage extends GetView<SearchControllers>{
              return Column(
                crossAxisAlignment:controller.listMess[index].type == "admin"? CrossAxisAlignment.start: CrossAxisAlignment.end,
                children: [
-                 IntrinsicWidth(child:  Container(
-                   decoration: BoxDecoration(
-                     color:controller.listMess[index].type == "admin"?Colors.grey.shade400:  Colors.deepPurple.shade800,
-                     borderRadius:  const BorderRadius.only(
-                         topLeft: Radius.circular(40),
-
-                         topRight: Radius.circular(40),
-
-                         bottomLeft: Radius.circular(40),
-
-                         bottomRight: Radius.circular(40)
-                     )
-                   ),
+                 IntrinsicWidth(
+                   child:  Container(
+                   decoration: controller.checkMess(),
                    padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.h),
                    child:  Row(
                      mainAxisAlignment: MainAxisAlignment.end,
