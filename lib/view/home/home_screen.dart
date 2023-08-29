@@ -106,7 +106,7 @@ class _AnimatedBarExampleState extends State<HomeScreen> {
             DashBroadPage(),
             SearchPage(),
             OrderScreen(),
-            DashBroadPage(),
+            ProfilePage(),
           ],
         ),
       );

@@ -1,6 +1,7 @@
 import 'package:app_3tv/view/search/item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -28,34 +29,81 @@ class SearchControllers extends GetxController {
   }
 
   var listMess = [
-    Item(type: "client", mess: "aloahsda"),
-    Item(type: "client", mess: "sdfsdfsdfs"),
-    Item(type: "admin", mess: "alodfsdfsdfsdfsdahsda"),
-    Item(type: "client", mess: "alofsdfsdahsda"),
-    Item(type: "client", mess: "alofsdfsdfahsda"),
-    Item(type: "admin", mess: "alsdfsdoahfsdfsdfsdfsda"),
-    Item(type: "admin", mess: "aloahsda"),
-    Item(type: "client", mess: "aloahsdfsdfsda"),
-    Item(type: "admin", mess: "aloahssdfsdfda"),
+    Item(type: "client", mess: "aloahsda", position: Session.start),
+    Item(type: "client", mess: "sdfsdfsdfs", position: Session.emd),
+    Item(type: "admin", mess: "alodfsdfsdfsdfsdahsda", position: Session.oneItem),
+    Item(type: "client", mess: "alofsdfsdahsda", position: Session.start),
+    Item(type: "client", mess: "alofsdfsdfahsda", position: Session.emd),
+    Item(type: "admin", mess: "alsdfsdoahfsdfsdfsdfsda", position: Session.start),
+    Item(type: "admin", mess: "aloahsda", position: Session.emd),
+    Item(type: "client", mess: "aloahsdfsdfsda", position: Session.oneItem),
+    Item(type: "admin", mess: "aloahssdfsdfda", position: Session.start),
   ].obs;
 
-  checkMess() {
-    for (int i = 0; i < listClient.length; i++) {
-      for (int j = 0; j < i; j++) {
-        if (listClient[j] + 1 == listClient[i]) {
-          print(listClient);
-          print(listClient[i]);
-          print(listClient[j]);
-          if (listClient[j] == 0) {
-            return BoxDecoration(
-                color: listMess[i].type == "admin" ? Colors.grey.shade400 : Colors.deepPurple.shade800,
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(40), bottomLeft: Radius.circular(40), bottomRight: Radius.circular(0)));
-          }
-          if (listClient[i] == 1) {
-            return BoxDecoration(
-                color: listMess[i].type == "admin" ? Colors.grey.shade400 : Colors.deepPurple.shade800,
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(0), bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40)));
-          } else {}
+
+  checkMessClienttop(){
+   for(int i = 0; i< listMess.length; i++){
+     if(listMess[i].type == "client"){
+       if(listMess[i].position == Session.start){
+         return 40.r;
+       }else if(listMess[i].position == Session.emd){
+         return 12.r;
+
+       }else if(listMess[i].position == Session.oneItem){
+         return 40.r;
+
+       }else{
+         return 12.r;
+
+       }
+   }
+  }
+}
+  checkMessClientbottom() {
+    for (int i = 0; i < listMess.length; i++) {
+      if (listMess[i].type == "client") {
+        if (listMess[i].position == Session.start) {
+          return 12.r;
+        } else if (listMess[i].position == Session.emd) {
+          return 40.r;
+        } else if (listMess[i].position == Session.oneItem) {
+          return 40.r;
+        } else {
+          return 12.r;
+        }
+      }
+    }
+  }
+
+
+  checkMessAdmintop(){
+    for(int i = 0; i< listMess.length; i++){
+      if(listMess[i].type == "admin"){
+        if(listMess[i].position == Session.start){
+          return 40.r;
+        }else if(listMess[i].position == Session.emd){
+          return 12.r;
+        }else if(listMess[i].position == Session.oneItem){
+          return 40.r;
+        }else{
+          return 12.r;
+        }
+      }
+    }
+  }
+
+
+  checkMessAdminbottom(){
+    for(int i = 0; i< listMess.length; i++){
+      if(listMess[i].type == "admin"){
+        if(listMess[i].position == Session.start){
+          return 12.r;
+        }else if(listMess[i].position == Session.emd){
+          return 40.r;
+        }else if(listMess[i].position == Session.oneItem){
+          return 40.r;
+        }else{
+          return 12.r;
         }
       }
     }

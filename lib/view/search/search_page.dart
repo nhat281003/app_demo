@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:app_3tv/view/search/item.dart';
 import 'package:app_3tv/view/search/search_controller.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +48,17 @@ class SearchPage extends GetView<SearchControllers>{
                children: [
                  IntrinsicWidth(
                    child:  Container(
-                   decoration: controller.checkMess(),
+                   decoration: BoxDecoration(
+                     color: controller.listMess[index].type == "client" ? Colors.blue : Colors.pinkAccent,
+                     borderRadius:
+                     BorderRadius.only(
+                         topLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessAdmintop():40.r),
+                         topRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClienttop(): 40.r),
+                         bottomLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessAdminbottom():40.r),
+                         bottomRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientbottom(): 40.r
+                         ))
+                   )
+             ,
                    padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.h),
                    child:  Row(
                      mainAxisAlignment: MainAxisAlignment.end,
@@ -125,7 +137,7 @@ class SearchPage extends GetView<SearchControllers>{
                   ),)),
                 InkWell(
                   onTap: (){
-                    controller.listMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString()));
+                    controller.listMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position: Session.start));
                     controller.textEditingController.text = "";
                     controller.listMess.refresh();
                     controller.scrollController.jumpTo(controller.scrollController.position.maxScrollExtent+ 60.h);
