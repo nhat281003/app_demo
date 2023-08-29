@@ -31,16 +31,10 @@ class SearchControllers extends GetxController {
   var listMess = [
     Item(type: "client", mess: "aloahsda", position: Session.start),
     Item(type: "client", mess: "sdfsdfsdfs", position: Session.emd),
-    Item(
-        type: "admin",
-        mess: "alodfsdfsdfsdfsdahsda",
-        position: Session.oneItem),
+    Item(type: "admin", mess: "alodfsdfsdfsdfsdahsda", position: Session.oneItem),
     Item(type: "client", mess: "alofsdfsdahsda", position: Session.start),
     Item(type: "client", mess: "123", position: Session.emd),
-    Item(
-        type: "admin",
-        mess: "alsdfsdoahfsdfsdfsdfsda",
-        position: Session.start),
+    Item(type: "admin", mess: "alsdfsdoahfsdfsdfsdfsda", position: Session.start),
     Item(type: "admin", mess: "aloahsda", position: Session.emd),
     Item(type: "client", mess: "aloahsdfsdfsda", position: Session.oneItem),
     Item(type: "admin", mess: "aloahssdfsdfda", position: Session.start),
