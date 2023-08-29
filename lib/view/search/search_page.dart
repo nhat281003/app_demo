@@ -35,7 +35,7 @@ class SearchPage extends GetView<SearchControllers>{
         Container(
           color: Colors.white70,
           padding: EdgeInsets.symmetric(horizontal: 16.h),
-          child: 
+          child:
          Obx(() =>  ListView.builder(
            controller: controller.scrollController,
            padding: EdgeInsets.zero,
@@ -52,10 +52,10 @@ class SearchPage extends GetView<SearchControllers>{
                      color: controller.listMess[index].type == "client" ? Colors.blue : Colors.pinkAccent,
                      borderRadius:
                      BorderRadius.only(
-                         topLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessAdmintop():40.r),
-                         topRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClienttop(): 40.r),
-                         bottomLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessAdminbottom():40.r),
-                         bottomRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientbottom(): 40.r
+                         topLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientTop(controller.listMess[index].position):40.r),
+                         topRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientTop(controller.listMess[index].position): 40.r),
+                         bottomLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientBottom(controller.listMess[index].position):40.r),
+                         bottomRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientBottom(controller.listMess[index].position): 40.r
                          ))
                    )
              ,
@@ -164,5 +164,5 @@ class SearchPage extends GetView<SearchControllers>{
       ),
       );
   }
-  
+
 }
