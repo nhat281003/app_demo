@@ -31,81 +31,42 @@ class SearchControllers extends GetxController {
   var listMess = [
     Item(type: "client", mess: "aloahsda", position: Session.start),
     Item(type: "client", mess: "sdfsdfsdfs", position: Session.emd),
-    Item(type: "admin", mess: "alodfsdfsdfsdfsdahsda", position: Session.oneItem),
+    Item(
+        type: "admin",
+        mess: "alodfsdfsdfsdfsdahsda",
+        position: Session.oneItem),
     Item(type: "client", mess: "alofsdfsdahsda", position: Session.start),
-    Item(type: "client", mess: "alofsdfsdfahsda", position: Session.emd),
-    Item(type: "admin", mess: "alsdfsdoahfsdfsdfsdfsda", position: Session.start),
+    Item(type: "client", mess: "123", position: Session.emd),
+    Item(
+        type: "admin",
+        mess: "alsdfsdoahfsdfsdfsdfsda",
+        position: Session.start),
     Item(type: "admin", mess: "aloahsda", position: Session.emd),
     Item(type: "client", mess: "aloahsdfsdfsda", position: Session.oneItem),
     Item(type: "admin", mess: "aloahssdfsdfda", position: Session.start),
   ].obs;
 
-
-  checkMessClienttop(){
-   for(int i = 0; i< listMess.length; i++){
-     if(listMess[i].type == "client"){
-       if(listMess[i].position == Session.start){
-         return 40.r;
-       }else if(listMess[i].position == Session.emd){
-         return 12.r;
-
-       }else if(listMess[i].position == Session.oneItem){
-         return 40.r;
-
-       }else{
-         return 12.r;
-
-       }
-   }
-  }
-}
-  checkMessClientbottom() {
-    for (int i = 0; i < listMess.length; i++) {
-      if (listMess[i].type == "client") {
-        if (listMess[i].position == Session.start) {
-          return 12.r;
-        } else if (listMess[i].position == Session.emd) {
-          return 40.r;
-        } else if (listMess[i].position == Session.oneItem) {
-          return 40.r;
-        } else {
-          return 12.r;
-        }
-      }
+  checkMessClientTop(Session session) {
+    if (session == Session.start) {
+      return 40.r;
+    } else if (session == Session.emd) {
+      return 12.r;
+    } else if (session == Session.oneItem) {
+      return 40.r;
+    } else {
+      return 12.r;
     }
   }
 
-
-  checkMessAdmintop(){
-    for(int i = 0; i< listMess.length; i++){
-      if(listMess[i].type == "admin"){
-        if(listMess[i].position == Session.start){
-          return 40.r;
-        }else if(listMess[i].position == Session.emd){
-          return 12.r;
-        }else if(listMess[i].position == Session.oneItem){
-          return 40.r;
-        }else{
-          return 12.r;
-        }
-      }
-    }
-  }
-
-
-  checkMessAdminbottom(){
-    for(int i = 0; i< listMess.length; i++){
-      if(listMess[i].type == "admin"){
-        if(listMess[i].position == Session.start){
-          return 12.r;
-        }else if(listMess[i].position == Session.emd){
-          return 40.r;
-        }else if(listMess[i].position == Session.oneItem){
-          return 40.r;
-        }else{
-          return 12.r;
-        }
-      }
+  checkMessClientBottom(Session session) {
+    if (session == Session.start) {
+      return 12.r;
+    } else if (session == Session.emd) {
+      return 40.r;
+    } else if (session == Session.oneItem) {
+      return 40.r;
+    } else {
+      return 12.r;
     }
   }
 }
