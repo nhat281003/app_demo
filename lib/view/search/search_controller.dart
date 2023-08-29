@@ -46,7 +46,7 @@ class SearchControllers extends GetxController {
      if(listMess[i].type == "client"){
        if(listMess[i].position == Session.start){
          return 40.r;
-       }else if(listMess[i].position == Session.emd){
+       } if(listMess[i].position == Session.emd){
          return 12.r;
 
        }else if(listMess[i].position == Session.oneItem){

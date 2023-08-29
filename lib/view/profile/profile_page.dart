@@ -20,10 +20,11 @@ class ProfilePage extends GetView<ProfileController>{
        },
        color: Colors.red,
        child:  Container(
-         padding: const EdgeInsets.all(16),
+         margin: const EdgeInsets.symmetric(horizontal: 12),
          child: Column(
            crossAxisAlignment: CrossAxisAlignment.start,
            children: [
+             SizedBox(height: 10.h,),
              Text("Popular list", style:  TextStyle(color: Colors.black,fontWeight: FontWeight.w600, fontSize: 18.sp),),
              SizedBox(height: 10.h,),
              Expanded(child: 
@@ -94,7 +95,10 @@ class ProfilePage extends GetView<ProfileController>{
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
                                      Text(controller.listItem[index].voteAverage.toString().substring(0,1) ??"",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.sp) ),
-                                     Text("\.${controller.listItem?[index].voteAverage.toString().substring(2)}",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ),
+
+                                     controller.listItem[index].voteAverage.toString().length ==1 ?
+                                         Text("\.0",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ):
+                                     Text("\. ${controller.listItem[index].voteAverage.toString().substring(2,3) }",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ),
                                    ],
                                  )
 
