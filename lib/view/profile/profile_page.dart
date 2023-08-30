@@ -95,10 +95,9 @@ class ProfilePage extends GetView<ProfileController>{
                                    mainAxisAlignment: MainAxisAlignment.center,
                                    children: [
                                      Text(controller.listItem[index].voteAverage.toString().substring(0,1) ??"",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.sp) ),
-
                                      controller.listItem[index].voteAverage.toString().length ==1 ?
-                                         Text("\.0",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ):
-                                     Text("\. ${controller.listItem[index].voteAverage.toString().substring(2,3) }",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ),
+                                         Text(".0",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ):
+                                     Text(". ${controller.listItem[index].voteAverage.toString().substring(2,3) }",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10.sp) ),
                                    ],
                                  )
 

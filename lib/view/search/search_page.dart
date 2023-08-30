@@ -1,6 +1,3 @@
-
-import 'dart:math';
-
 import 'package:app_3tv/view/search/item.dart';
 import 'package:app_3tv/view/search/search_controller.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +17,7 @@ class SearchPage extends GetView<SearchControllers>{
           SizedBox(height: Get.height /16),
           Container(
             color: Colors.white,
-            padding: EdgeInsets.all(16.h),
+            padding: EdgeInsets.all(16.w),
             child: Row(
               children: [
                 const Icon(Icons.arrow_back_rounded, color: Colors.grey,),
@@ -34,7 +31,7 @@ class SearchPage extends GetView<SearchControllers>{
         child:
         Container(
           color: Colors.white70,
-          padding: EdgeInsets.symmetric(horizontal: 16.h),
+          padding: EdgeInsets.symmetric(horizontal: 4.w),
           child:
          Obx(() =>  ListView.builder(
            controller: controller.scrollController,
@@ -46,63 +43,84 @@ class SearchPage extends GetView<SearchControllers>{
              return Column(
                crossAxisAlignment:controller.listMess[index].type == "admin"? CrossAxisAlignment.start: CrossAxisAlignment.end,
                children: [
-                 IntrinsicWidth(
-                   child:  Container(
-                   decoration: BoxDecoration(
-                     color: controller.listMess[index].type == "client" ? Colors.blue : Colors.pinkAccent,
-                     borderRadius:
-                     BorderRadius.only(
-                         topLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientTop(controller.listMess[index].position):40.r),
-                         topRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientTop(controller.listMess[index].position): 40.r),
-                         bottomLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientBottom(controller.listMess[index].position):40.r),
-                         bottomRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientBottom(controller.listMess[index].position): 40.r
-                         ))
-                   )
-             ,
-                   padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.h),
-                   child:  Row(
-                     mainAxisAlignment: MainAxisAlignment.end,
-                     children: [
-                       controller.listMess[index].type == "client" ?Container(): Container(
-                         width: 40.h,
-                         height: 40.h,
+                 Row(
+                   mainAxisAlignment:controller.listMess[index].type == "admin"? MainAxisAlignment.start: MainAxisAlignment.end,
+                   children: [
+                   controller.listMess[index].type == "client" ?Container():
+                   controller.listVisiable[index] == false ? SizedBox(width: 22.w,):
+                   Visibility(
+                      visible: controller.listVisiable[index],
+                      child:  Container(
+                    width: 20.h,
+                    height: 20.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      image:  DecorationImage(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                              controller.listMess[index].type == "client" ? "https://noithatbinhminh.com.vn/wp-content/uploads/2022/08/anh-dep-40.jpg":
+                              "https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien.jpeg")
+                      ),
+                    ),
+                  )),
+                     SizedBox(width: 6.w,),
+                     IntrinsicWidth(
+                       child:  Container(
                          decoration: BoxDecoration(
-                           borderRadius: BorderRadius.circular(40),
-                           image:  DecorationImage(
-                               fit: BoxFit.fill,
-                               image: NetworkImage(
-                                   controller.listMess[index].type == "client" ? "https://noithatbinhminh.com.vn/wp-content/uploads/2022/08/anh-dep-40.jpg":
-                                   "https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien.jpeg")
-                           ),
+                             color: controller.listMess[index].type == "client" ? Colors.blue : Colors.pinkAccent,
+                             borderRadius:
+                             BorderRadius.only(
+                                 topLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientTop(controller.listMess[index].position):40.r),
+                                 topRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientTop(controller.listMess[index].position): 40.r),
+                                 bottomLeft: Radius.circular(controller.listMess[index].type == "admin"? controller.checkMessClientBottom(controller.listMess[index].position):40.r),
+                                 bottomRight: Radius.circular(controller.listMess[index].type == "client"?controller.checkMessClientBottom(controller.listMess[index].position): 40.r
+                                 ))
+                         )
+                         ,
+                         padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.h),
+                         child:  Row(
+                           mainAxisAlignment: MainAxisAlignment.end,
+                           children: [
+                             Expanded(child:Text(controller.listMess[index].mess, textAlign: controller.listMess[index].type == "admin"?
+                             TextAlign.start:TextAlign.end ,style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.bold),),
+                             ),
+                           ],
                          ),
-                       ),
-                       SizedBox(width: 12.w,),
-                       Expanded(child:Text(controller.listMess[index].mess!, textAlign: controller.listMess[index].type == "admin"?
-                       TextAlign.start:TextAlign.end ,style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.bold),),
-                       ),
-                       SizedBox(width: 12.w,),
-                      controller.listMess[index].type == "admin"?
-                      Container(): Container(
-                         width: 40.h,
-                         height: 40.h,
-                         decoration: BoxDecoration(
-                           borderRadius: BorderRadius.circular(40),
-                           image: const DecorationImage(
-                               fit: BoxFit.fill,
-                               image: NetworkImage("https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien.jpeg")
-                           ),
-                         ),
-                       )
-                     ],
-                   ),
-                 ),),
-                 SizedBox(height: 4.h,),
-               controller.listMess[controller.listMess.length -1].type ==  controller.listMess[controller.listMess.length -2].type?
-              const Text(""):
-              Text(controller.formatDate.format(DateTime.now()), style: TextStyle(color: Colors.grey , fontSize: 10.sp),),
+                       ),),
+                     SizedBox(width: 6.w,),
+                     controller.listMess[index].type == "admin"?
+                     Container():
+                     controller.listVisiable[index] == false ? SizedBox(width: 22.w,):
+                    Visibility(
+                        visible: controller.listVisiable[index],
+                        child:  Container(
+                      width: 20.h,
+                      height: 20.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        image: const DecorationImage(
+                            fit: BoxFit.fill,
+                            image: NetworkImage("https://vapa.vn/wp-content/uploads/2022/12/anh-3d-thien-nhien.jpeg")
+                        ),
+                      ),
+                    ))
+                   ],
+                 ),
 
-                 controller.listMess[controller.listMess.length -1].type ==  controller.listMess[controller.listMess.length -2].type?
-                 const SizedBox(): SizedBox(height: 10.h,)
+                 SizedBox(height: 4.h,),
+                 Visibility(
+                   visible: controller.listVisiable[index],
+                   child:
+                   Row(
+                     mainAxisAlignment:controller.listMess[index].type == "admin"? MainAxisAlignment.start: MainAxisAlignment.end,
+                     children: [
+                       SizedBox(width: 27.w,),
+                            Text(controller.formatDate.format(DateTime.now()), style: TextStyle(color: Colors.grey , fontSize: 10.sp),),
+
+                       SizedBox(width: 27.w,),
+                     ],
+                   )),
+                 SizedBox(height: 4.h,)
                ],
              )
              ;
@@ -137,8 +155,32 @@ class SearchPage extends GetView<SearchControllers>{
                   ),)),
                 InkWell(
                   onTap: (){
-                    controller.listMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position: Session.start));
+                    controller.count.value = controller.count.value +1 ;
+                    controller.listAddMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position: Session.oneItem));
+                    for(int i= 0 ; i< controller.listAddMess.length ; i++){
+                      if(controller.listAddMess.length ==1 ){
+                       controller.listMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position:Session.oneItem ));
+                       controller.listVisiable.add(true);
+                      }else
+                        if(controller.listAddMess.length > 1) {
+                        if(i == controller.listAddMess.length -1){
+                          controller.listMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position:Session.emd ));
+                          controller.listVisiable.add(true);
+                        }else if(i != controller.listAddMess.length -1 && i == 0){
+                          controller.listMess[ controller.listMess.length - controller.count.value+1].position = Session.start;
+                          controller.listVisiable[ controller.listMess.length - controller.count.value+1] = false;
+
+                        }else{
+                         for(int i = 0; i < controller.listAddMess.length - 2; i++ ){
+                           controller.listMess[ controller.listMess.length - controller.count.value+2+i].position = Session.center;
+                           controller.listVisiable[ controller.listMess.length - controller.count.value+2+i] = false;
+                         }
+                        }
+                      }
+                    }
+                    // controller.listVisiable.add(true);
                     controller.textEditingController.text = "";
+                    controller.listAddMess.refresh();
                     controller.listMess.refresh();
                     controller.scrollController.jumpTo(controller.scrollController.position.maxScrollExtent+ 60.h);
                     controller.update();
