@@ -10,13 +10,20 @@ class SearchControllers extends GetxController {
   TextEditingController textEditingController = TextEditingController();
   ScrollController scrollController = ScrollController();
   var number = 0.obs;
-
   var listClient = [].obs;
   var listAdmin = [].obs;
+  var listVisiable = [].obs;
+  var count = 0.obs;
+  var listAddMess = <Item>[
+  ].obs;
 
   @override
   void onInit() {
     for (int i = 0; i < listMess.length; i++) {
+      listVisiable.add(false);
+      if(listMess[i].position == Session.emd || listMess[i].position == Session.oneItem){
+        listVisiable[i] = true;
+      }
       if (listMess[i].type == "client") {
         listClient.add(i);
       }
@@ -33,11 +40,12 @@ class SearchControllers extends GetxController {
     Item(type: "client", mess: "sdfsdfsdfs", position: Session.emd),
     Item(type: "admin", mess: "alodfsdfsdfsdfsdahsda", position: Session.oneItem),
     Item(type: "client", mess: "alofsdfsdahsda", position: Session.start),
+    Item(type: "client", mess: "alofsdfsdahsda", position: Session.center),
     Item(type: "client", mess: "123", position: Session.emd),
     Item(type: "admin", mess: "alsdfsdoahfsdfsdfsdfsda", position: Session.start),
     Item(type: "admin", mess: "aloahsda", position: Session.emd),
     Item(type: "client", mess: "aloahsdfsdfsda", position: Session.oneItem),
-    Item(type: "admin", mess: "aloahssdfsdfda", position: Session.start),
+    Item(type: "admin", mess: "aloahssdfsdfda", position: Session.oneItem),
   ].obs;
 
   checkMessClientTop(Session session) {
@@ -62,5 +70,25 @@ class SearchControllers extends GetxController {
     } else {
       return 12.r;
     }
+  }
+  addPosition(){
+ for(int i = 0; i< listMess.length; i++){
+   if(listAddMess.length ==1){
+     listAddMess.add(Item(type: "client", mess:textEditingController.text.toString(), position: Session.oneItem));
+     listMess.add(Item(type: "client", mess:listAddMess[i].mess, position: listAddMess[i].position));
+   }else if( i != listAddMess.length-1){
+     listAddMess.add(Item(type: "client", mess:textEditingController.text.toString(), position: Session.start));
+     listMess.add(Item(type: "client", mess:listAddMess[i].mess, position: listAddMess[i].position));
+
+   }else if(i == listAddMess.length-1){
+     listAddMess.add(Item(type: "client", mess:textEditingController.text.toString(), position: Session.emd));
+     listMess.add(Item(type: "client", mess:listAddMess[i].mess, position: listAddMess[i].position));
+
+   }else{
+     listAddMess.add(Item(type: "client", mess:textEditingController.text.toString(), position: Session.center));
+     listMess.add(Item(type: "client", mess:listAddMess[i].mess, position: listAddMess[i].position));
+
+   }
+ }
   }
 }
