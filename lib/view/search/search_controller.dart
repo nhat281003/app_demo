@@ -14,8 +14,9 @@ class SearchControllers extends GetxController {
   var listAdmin = [].obs;
   var listVisiable = [].obs;
   var count = 0.obs;
-  var listAddMess = <Item>[
-  ].obs;
+  var countAd = 0.obs;
+  var listAddMess = <Item>[].obs;
+  var listAddMessAd = <Item>[].obs;
 
   @override
   void onInit() {
