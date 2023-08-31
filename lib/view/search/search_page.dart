@@ -136,6 +136,51 @@ class SearchPage extends GetView<SearchControllers>{
             padding: EdgeInsets.symmetric(horizontal: 16.w,),
             child: Row(
               children: [
+                InkWell(
+                  onTap: (){
+                    controller.listAddMess.value =[];
+                    controller.count.value = 0;
+                    controller.countAd.value = controller.countAd.value +1 ;
+                    controller.listAddMessAd.add(Item(type: "admin", mess: controller.textEditingController.value.text.toString(), position: Session.oneItem));
+                    for(int i= 0 ; i< controller.listAddMessAd.length ; i++){
+                      if(controller.listAddMessAd.length ==1 ){
+                        controller.listMess.add(Item(type: "admin", mess: controller.textEditingController.value.text.toString(), position:Session.oneItem ));
+                        controller.listVisiable.add(true);
+                      }else
+                      if(controller.listAddMessAd.length > 1) {
+                        if(i == controller.listAddMessAd.length -1){
+                          controller.listMess.add(Item(type: "admin", mess: controller.textEditingController.value.text.toString(), position:Session.emd ));
+                          controller.listVisiable.add(true);
+                        }else if(i != controller.listAddMessAd.length -1 && i == 0){
+                          controller.listMess[ controller.listMess.length - controller.countAd.value+1].position = Session.start;
+                          controller.listVisiable[ controller.listMess.length - controller.countAd.value+1] = false;
+
+                        }else{
+                          for(int i = 0; i < controller.listAddMessAd.length - 2; i++ ){
+                            controller.listMess[ controller.listMess.length - controller.countAd.value+2+i].position = Session.center;
+                            controller.listVisiable[ controller.listMess.length - controller.countAd.value+2+i] = false;
+                          }
+                        }
+                      }
+                    }
+                    // controller.listVisiable.add(true);
+                    controller.textEditingController.text = "";
+                    controller.listAddMessAd.refresh();
+                    controller.listMess.refresh();
+                    controller.scrollController.jumpTo(controller.scrollController.position.maxScrollExtent+ 60.h);
+                    controller.update();
+                  },
+                  child: Container(
+                    height: 30.h,
+                    width: 30.h,
+                    decoration: BoxDecoration(
+                        color: Colors.blue.shade400,
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child:  const Center(
+                      child: Icon(Icons.send, color: Colors.white,size: 20,),
+                    ),
+                  ),),
                 Expanded(child:
                 TextField(
                   controller: controller.textEditingController,
@@ -155,6 +200,8 @@ class SearchPage extends GetView<SearchControllers>{
                   ),)),
                 InkWell(
                   onTap: (){
+                    controller.listAddMessAd.value =[];
+                    controller.countAd.value = 0;
                     controller.count.value = controller.count.value +1 ;
                     controller.listAddMess.add(Item(type: "client", mess: controller.textEditingController.value.text.toString(), position: Session.oneItem));
                     for(int i= 0 ; i< controller.listAddMess.length ; i++){
