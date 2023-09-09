@@ -2,6 +2,7 @@ import 'package:app_3tv/binding/app_binding.dart';
 import 'package:app_3tv/routes/app_pages.dart';
 import 'package:app_3tv/routes/app_routes.dart';
 import 'package:app_3tv/view/login/login_controller.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,7 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -31,6 +33,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+
     super.initState();
   }
 
@@ -64,8 +67,6 @@ class _MyAppState extends State<MyApp> {
             // }
           }
           return GetBuilder<LoginController>(builder: (loginController) {
-            // loginController
-            //     .setIsMoreIphoneX(MediaQuery.of(context).padding.top > 24.0);
             return ScreenUtilInit(
                 useInheritedMediaQuery: true,
                 designSize: loginController.size,

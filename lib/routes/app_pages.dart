@@ -6,10 +6,12 @@ import 'package:app_3tv/view/login/splash_screen.dart';
 import 'package:app_3tv/view/login/splass_swipper/splash_swiper_page.dart';
 import 'package:app_3tv/view/order/confirm_order/confirm_order.dart';
 import 'package:app_3tv/view/order/order.dart';
+import 'package:app_3tv/view/test.dart';
 import 'package:get/get.dart';
 
 class AppPages{
   static final pages = [
+    GetPage(name:Routes.test, page: ()=> Test()),
     GetPage(name:Routes.splash, page: ()=> SplashScreen()),
     GetPage(name:Routes.home, page: ()=> HomeScreen()),
     GetPage(name:Routes.login, page: ()=> LoginScreen()),

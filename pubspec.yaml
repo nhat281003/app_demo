@@ -69,7 +69,7 @@ dependencies:
   android_path_provider: ^0.3.0
   flutter_easyloading: ^3.0.5
   curl_logger_dio_interceptor: ^1.0.0
-  firebase_core: ^2.1.1
+  firebase_core: ^2.15.1
   flutter_local_notifications: 14.1.1
   stylish_bottom_bar: ^1.0.3
   pinput: ^2.2.31

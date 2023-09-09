@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyATvVvI5BxDqls2zjrFeiDK6d1thmGrHEg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>192873911764</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.app3tv</string>
+	<key>PROJECT_ID</key>
+	<string>sendnotification-cb5a7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sendnotification-cb5a7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:192873911764:ios:d9a78c7cbb9f362bb3b241</string>
+</dict>
+</plist>
